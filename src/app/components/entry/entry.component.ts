@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ITodo } from 'src/app/models/todo.interface';
 import { StorageService } from 'src/app/services/storage.service';
 import { environment } from 'src/environments/environment';
+import { Guid } from "guid-typescript";
 
 @Component({
   selector: 'Jengal-entry',
@@ -23,10 +24,11 @@ export class EntryComponent {
 
   addTodo() {
     const todo: ITodo = {
+      id:Guid.create().toString(),
       completed: false,
       value: this.entryText,
     };
-    this.storageService.set(environment.todos_storage_key, todo);
+    this.storageService.newTodo(environment.todos_storage_key, todo);
     this.entryText = '';
     this.todos = this.storageService.get(environment.todos_storage_key);
     this.todosChange.emit(this.todos)

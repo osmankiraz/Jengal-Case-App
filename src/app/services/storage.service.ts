@@ -7,11 +7,15 @@ import { ITodo } from '../models/todo.interface';
 export class StorageService {
   constructor() {}
 
-  set(key: string, value: ITodo) {
+  newTodo(key: string, value: ITodo) {
     let values = this.get(key);
     if (!values) values = [];
     values.push(value);
     localStorage.setItem(key, JSON.stringify(values));
+  }
+
+  changeTodo(key:string,value:ITodo[]){
+    localStorage.setItem(key, JSON.stringify(value));
   }
 
   get(key: string): ITodo[] {

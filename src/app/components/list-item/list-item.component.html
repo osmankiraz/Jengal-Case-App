@@ -4,8 +4,8 @@
     class="form-check-input mx-2"
     type="checkbox"
     id="flexCheckDisabled"
-    (click)="changeComplete()"
+    (click)="changeComplete(item.id)"
   />
   <span>{{ item.value }}</span>
-  <Jengal-icon name="trash" color="#888"></Jengal-icon>
+  <Jengal-icon name="trash" color="#888" (callback)="deleteTodo(item.id)"></Jengal-icon>
 </li>
