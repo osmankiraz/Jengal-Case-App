@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'Jengal-entry',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./entry.component.scss']
 })
 export class EntryComponent {
+
+  /**
+   * Inputun placeholder bilgisi parent component üzerinden alınır.
+   */
+  @Input() placeholder:string=""
 
 }
