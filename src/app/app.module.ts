@@ -8,12 +8,20 @@ import { IconComponent } from './components/icon/icon.component';
 import { ListComponent } from './components/list/list.component';
 import { EntryComponent } from './components/entry/entry.component';
 import { MainComponent } from './components/main/main.component';
+import { ListItemComponent } from './components/list-item/list-item.component';
 
 @NgModule({
-  declarations: [AppComponent, IconComponent, ListComponent, EntryComponent, MainComponent],
+  declarations: [
+    AppComponent,
+    IconComponent,
+    ListComponent,
+    EntryComponent,
+    MainComponent,
+    ListItemComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent],
-  exports:[IconComponent]
+  exports: [IconComponent, ListComponent, EntryComponent, ListItemComponent],
 })
 export class AppModule {}
