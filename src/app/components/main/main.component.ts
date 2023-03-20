@@ -14,6 +14,10 @@ export class MainComponent implements OnInit {
   constructor(private storageService: StorageService) {}
 
   ngOnInit(): void {
+    this.initialiedMain();
+  }
+
+  initialiedMain(){
     this.todos = this.storageService.get(environment.todos_storage_key);
   }
 }

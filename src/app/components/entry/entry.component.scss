@@ -1,6 +1,6 @@
-:host{
+:host {
   width: 730px;
-  input{
+  input {
     width: 700px;
     height: 40px;
     outline: none;
@@ -8,9 +8,8 @@
     border-radius: 4px;
   }
 
-
-  .add-btn{
-    background-color: #F97300;
+  .add-btn {
+    background-color: #f97300;
     position: absolute;
     height: 50px;
     width: 50px;
@@ -18,5 +17,4 @@
     top: -5px;
     border-radius: 50%;
   }
-
 }

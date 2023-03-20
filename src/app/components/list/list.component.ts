@@ -14,7 +14,10 @@ export class ListComponent {
 
   constructor(private storageService: StorageService) {}
 
+  /**
+   * Bir todo silindiğinde todolar yenilenir.
+   */
   refresh() {
-    this.todos= this.storageService.get(environment.todos_storage_key)
+    this.todos = this.storageService.get(environment.todos_storage_key);
   }
 }

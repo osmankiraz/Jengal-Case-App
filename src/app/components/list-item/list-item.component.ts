@@ -14,6 +14,9 @@ export class ListItemComponent {
 
   constructor(private storageService: StorageService) {}
 
+  /**
+   * Tamamlandı bilgisinin değişmesidir.
+   */
   changeComplete(id: string) {
     const todos = this.storageService.get(environment.todos_storage_key);
     const _todoIndex = todos.findIndex((t) => t.id == id);
@@ -24,6 +27,10 @@ export class ListItemComponent {
       this.item.completed = !this.item.completed;
     }
   }
+
+  /**
+   *  Todo silinme işlemini gerçekleştirir.
+   */
   deleteTodo(id: string) {
     const todos = this.storageService.get(environment.todos_storage_key);
     const _todoIndex = todos.findIndex((t) => t.id == id);

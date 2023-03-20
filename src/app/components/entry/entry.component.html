@@ -1,8 +1,13 @@
 <div class="row flex-nowrap position-relative">
-  <input name="entry_text" [(ngModel)]="entryText" type="text" [placeholder]="placeholder" />
-
-    <button type="button" class="btn add-btn" (click)="addTodo()">
-      <Jengal-icon color="#fff" name="plus"></Jengal-icon>
-    </button>
-
+  <input
+    #entry_input
+    name="entry_text"
+    [(ngModel)]="entryText"
+    type="text"
+    [placeholder]="placeholder"
+    (keydown.enter)="addTodo(entry_input)"
+  />
+  <button type="button" class="btn add-btn" (click)="addTodo(entry_input)">
+    <Jengal-icon color="#fff" name="plus"></Jengal-icon>
+  </button>
 </div>

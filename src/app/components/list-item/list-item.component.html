@@ -7,8 +7,16 @@
       id="flexCheckDisabled"
       (click)="changeComplete(item.id)"
     />
-    <span [style.text-decoration]="item.completed ? 'line-through':'none'" class="flex-grow-1">{{ item.value }}</span>
-    <Jengal-icon class="flex-grow-0 me-2" name="trash" color="#888" (callback)="deleteTodo(item.id)"></Jengal-icon>
-
+    <span
+      [style.text-decoration]="item.completed ? 'line-through' : 'none'"
+      class="flex-grow-1"
+      >{{ item.value }}</span
+    >
+    <Jengal-icon
+      class="flex-grow-0 me-2"
+      name="trash"
+      color="#888"
+      (callback)="deleteTodo(item.id)"
+    ></Jengal-icon>
   </div>
 </li>

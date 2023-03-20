@@ -1,21 +1,18 @@
-:host{
-
-  div{
-    border-left: 5px solid #F97300;
+:host {
+  div {
+    border-left: 5px solid #f97300;
     height: 100%;
     border-radius: 2px;
   }
 
-  li{
+  li {
     width: 698px;
     height: 40px;
     background-color: #fff;
     list-style: none;
   }
-  .checkbox{
+  .checkbox {
     margin: 0px;
     margin-top: 1px;
   }
-
-
 }

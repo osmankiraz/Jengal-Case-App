@@ -5,8 +5,10 @@ import { ITodo } from '../models/todo.interface';
   providedIn: 'root',
 })
 export class StorageService {
-  constructor() {}
 
+  /**
+   * Tek bir todo objesini alır ve todos'a ekler
+   */
   newTodo(key: string, value: ITodo) {
     let values = this.get(key);
     if (!values) values = [];
@@ -14,10 +16,16 @@ export class StorageService {
     localStorage.setItem(key, JSON.stringify(values));
   }
 
+  /**
+   * Todo arrayini local storage'e ekler.
+   */
   changeTodo(key:string,value:ITodo[]){
     localStorage.setItem(key, JSON.stringify(value));
   }
 
+  /**
+   * İlgili key'in verilerini çeker.
+   */
   get(key: string): ITodo[] {
     return JSON.parse(localStorage.getItem(key)!);
   }

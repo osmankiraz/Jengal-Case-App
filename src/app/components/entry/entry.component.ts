@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ITodo } from 'src/app/models/todo.interface';
 import { StorageService } from 'src/app/services/storage.service';
 import { environment } from 'src/environments/environment';
-import { Guid } from "guid-typescript";
+import { Guid } from 'guid-typescript';
 
 @Component({
   selector: 'Jengal-entry',
@@ -22,17 +22,22 @@ export class EntryComponent {
 
   constructor(private storageService: StorageService) {}
 
-  addTodo() {
-    if(this.entryText){
+  /**
+   * Todo ekler. Kullanıcı seri bir şekilde todo girebilmesi için
+   * ilgli inputa tekrar focus olunur
+   */
+  addTodo(input:any) {
+    if (this.entryText) {
       const todo: ITodo = {
-        id:Guid.create().toString(),
+        id: Guid.create().toString(),
         completed: false,
         value: this.entryText,
       };
       this.storageService.newTodo(environment.todos_storage_key, todo);
       this.entryText = '';
       this.todos = this.storageService.get(environment.todos_storage_key);
-      this.todosChange.emit(this.todos)
+      this.todosChange.emit(this.todos);
+      input.focus()
     }
   }
 }
