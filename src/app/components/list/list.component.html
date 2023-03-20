@@ -1,5 +1,3 @@
-<ul>
-  <Jengal-list-item></Jengal-list-item>
-  <li>Tea</li>
-  <li>Milk</li>
+<ul *ngFor="let item of todos" >
+  <Jengal-list-item [item]="item"></Jengal-list-item>
 </ul>

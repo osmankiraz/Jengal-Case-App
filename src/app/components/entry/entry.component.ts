@@ -1,15 +1,34 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ITodo } from 'src/app/models/todo.interface';
+import { StorageService } from 'src/app/services/storage.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'Jengal-entry',
   templateUrl: './entry.component.html',
-  styleUrls: ['./entry.component.scss']
+  styleUrls: ['./entry.component.scss'],
 })
 export class EntryComponent {
+  @Input() todos: ITodo[];
+  @Output() todosChange = new EventEmitter<ITodo[]>();
 
   /**
    * Inputun placeholder bilgisi parent component üzerinden alınır.
    */
-  @Input() placeholder:string=""
+  @Input() placeholder: string = '';
 
+  entryText: string;
+
+  constructor(private storageService: StorageService) {}
+
+  addTodo() {
+    const todo: ITodo = {
+      completed: false,
+      value: this.entryText,
+    };
+    this.storageService.set(environment.todos_storage_key, todo);
+    this.entryText = '';
+    this.todos = this.storageService.get(environment.todos_storage_key);
+    this.todosChange.emit(this.todos)
+  }
 }

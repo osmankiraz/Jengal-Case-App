@@ -1,1 +1,11 @@
-<li>deneme</li>
+<li>
+  <input
+    [ngModel]="item.completed"
+    class="form-check-input mx-2"
+    type="checkbox"
+    id="flexCheckDisabled"
+    (click)="changeComplete()"
+  />
+  <span>{{ item.value }}</span>
+  <Jengal-icon name="trash" color="#888"></Jengal-icon>
+</li>
