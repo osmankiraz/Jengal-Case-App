@@ -1,17 +1,20 @@
 :host{
+
+  div{
+    border-left: 5px solid #F97300;
+    height: 100%;
+    border-radius: 2px;
+  }
+
   li{
     width: 698px;
-    height: 30px;
+    height: 40px;
     background-color: #fff;
     list-style: none;
-
-
-    Jengal-icon{
-      float: right;
-      margin: 4px;
-    }
-
-
+  }
+  .checkbox{
+    margin: 0px;
+    margin-top: 1px;
   }
 
 

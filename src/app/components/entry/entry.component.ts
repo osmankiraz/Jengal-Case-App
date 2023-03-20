@@ -23,14 +23,16 @@ export class EntryComponent {
   constructor(private storageService: StorageService) {}
 
   addTodo() {
-    const todo: ITodo = {
-      id:Guid.create().toString(),
-      completed: false,
-      value: this.entryText,
-    };
-    this.storageService.newTodo(environment.todos_storage_key, todo);
-    this.entryText = '';
-    this.todos = this.storageService.get(environment.todos_storage_key);
-    this.todosChange.emit(this.todos)
+    if(this.entryText){
+      const todo: ITodo = {
+        id:Guid.create().toString(),
+        completed: false,
+        value: this.entryText,
+      };
+      this.storageService.newTodo(environment.todos_storage_key, todo);
+      this.entryText = '';
+      this.todos = this.storageService.get(environment.todos_storage_key);
+      this.todosChange.emit(this.todos)
+    }
   }
 }

@@ -1,8 +1,10 @@
-:host{
+:host {
   height: 100%;
   width: 750px;
+  max-height: 60vh;
+  overflow-y: auto;
 
-  ul{
+  ul {
     padding: 0;
   }
 }
