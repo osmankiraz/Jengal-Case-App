@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ListItemComponent {
   @Input() item: ITodo;
-  @Output() refresh=new EventEmitter<any>();
+  @Output() refresh = new EventEmitter<any>();
 
   constructor(private storageService: StorageService) {}
 
@@ -20,16 +20,17 @@ export class ListItemComponent {
 
     if (_todoIndex >= 0) {
       todos[_todoIndex].completed = !todos[_todoIndex].completed;
-      this.storageService.changeTodo(environment.todos_storage_key,todos);
+      this.storageService.changeTodo(environment.todos_storage_key, todos);
+      this.item.completed = !this.item.completed;
     }
   }
-  deleteTodo(id:string){
+  deleteTodo(id: string) {
     const todos = this.storageService.get(environment.todos_storage_key);
     const _todoIndex = todos.findIndex((t) => t.id == id);
 
     if (_todoIndex >= 0) {
-      todos.splice(_todoIndex,1)
-      this.storageService.changeTodo(environment.todos_storage_key,todos);
+      todos.splice(_todoIndex, 1);
+      this.storageService.changeTodo(environment.todos_storage_key, todos);
       this.refresh.emit();
     }
   }
